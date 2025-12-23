@@ -55,26 +55,4 @@ public class RepositoryOrderService implements OrderService {
     return order;
   }
 
-  public void markOrderPaid(String orderId) {
-    // Fetch the order entity by uuid
-    OrderEntity dbOrder = orderRepo.findByUuid(orderId);
-    if (dbOrder == null) {
-      throw new RuntimeException("Order not found: " + orderId);
-    }
-
-    // Persist updated entity
-    orderRepo.save(dbOrder);
-  }
-
-  public void markOrderShipped(String orderId) {
-    // Fetch the order entity by uuid
-    OrderEntity dbOrder = orderRepo.findByUuid(orderId);
-    if (dbOrder == null) {
-      throw new RuntimeException("Order not found: " + orderId);
-    }
-
-    // Persist the updated entity
-    orderRepo.save(dbOrder);
-  }
-
 }
